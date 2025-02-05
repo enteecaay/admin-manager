@@ -5,6 +5,8 @@ import { deleteUser, getUsers } from "../../service/userApi";
 import CreateUser from "../../components/CreateUser/CreateUser";
 import ModalViewUser from "../../components/ModalViewUser/ModalViewUser";
 import DeleteUser from "../../components/DeleteUser/DeleteUSer";
+import { Plus, Eye, Trash2, Recycle } from "lucide-react";
+import "./UserPage.scss";
 
 const UserPage: React.FC = () => {
   const [userList, setUserList] = useState<User[]>([]);
@@ -132,12 +134,16 @@ const UserPage: React.FC = () => {
 
   return (
     <div className="user-list">
-      <Button
-        type="primary"
-        onClick={() => setIsCreateOrUpdateModalVisible(true)}
-      >
-        Add User
-      </Button>
+      <div className="user-header">
+        <h2>User Management</h2>
+        <Button
+          type="primary"
+          onClick={() => setIsCreateOrUpdateModalVisible(true)}
+        >
+          Add User
+        </Button>
+      </div>
+
       <Table<User>
         columns={columns}
         dataSource={userList.map((user) => ({ ...user, key: user.userId }))}
