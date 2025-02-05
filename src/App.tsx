@@ -1,8 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout/MainLayout";
-import { isAuthenticated } from "./service/authService";
-import LoginPage from "./pages/LoginPage/LoginPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import UserPage from "./pages/UserPage/UserPage";
 import PostPage from "./pages/PostPage/PostPage";
@@ -11,7 +9,7 @@ const App: React.FC = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: isAuthenticated() ? <MainLayout /> : <LoginPage />,
+      element: <MainLayout />,
       errorElement: <ErrorPage />,
       children: [
         {
@@ -23,10 +21,6 @@ const App: React.FC = () => {
           element: <PostPage />,
         },
       ],
-    },
-    {
-      path: "/login",
-      element: <LoginPage />,
     },
   ]);
 
