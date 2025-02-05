@@ -137,7 +137,7 @@ const PostPage: React.FC = () => {
     {
       title: "Action",
       key: "action",
-      render: (text: string, record: Post) => (
+      render: (_: any, record: Post) => (
         <div style={{ display: "flex", gap: "1rem" }}>
           <Button type="link" onClick={() => handleViewPost(record)}>
             <Eye />
