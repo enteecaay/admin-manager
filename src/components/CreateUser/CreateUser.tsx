@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Form, Input, Button, message } from "antd";
 import { User } from "../../models/User";
 import { addUser, updateUser } from "../../service/userApi";

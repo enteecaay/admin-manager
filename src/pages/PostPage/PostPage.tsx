@@ -78,10 +78,6 @@ const PostPage: React.FC = () => {
     });
   };
 
-  const handleRefreshPosts = () => {
-    setRefreshTrigger(!refreshTrigger);
-  };
-
   const modalStyle = {
     width: "100%",
     height: "100%",

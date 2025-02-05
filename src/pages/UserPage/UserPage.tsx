@@ -5,7 +5,7 @@ import { deleteUser, getUsers } from "../../service/userApi";
 import CreateUser from "../../components/CreateUser/CreateUser";
 import ModalViewUser from "../../components/ModalViewUser/ModalViewUser";
 import DeleteUser from "../../components/DeleteUser/DeleteUSer";
-import { Plus, Eye, Trash2, Recycle } from "lucide-react";
+// import { Plus, Eye, Trash2, Recycle } from "lucide-react";
 import "./UserPage.scss";
 
 const UserPage: React.FC = () => {
@@ -112,7 +112,7 @@ const UserPage: React.FC = () => {
     {
       title: "Action",
       key: "action",
-      render: (text: string, record: User) => (
+      render: (_: any, record: User) => (
         <div style={{ display: "flex", gap: "1rem" }}>
           <Button type="primary" onClick={() => handleViewUser(record)}>
             View
