@@ -5,7 +5,7 @@ import { deleteUser, getUsers } from "../../service/userApi";
 import CreateUser from "../../components/CreateUser/CreateUser";
 import ModalViewUser from "../../components/ModalViewUser/ModalViewUser";
 import DeleteUser from "../../components/DeleteUser/DeleteUSer";
-// import { Plus, Eye, Trash2, Recycle } from "lucide-react";
+import { Plus, Eye, Trash2, Recycle } from "lucide-react";
 import "./UserPage.scss";
 
 const UserPage: React.FC = () => {
@@ -114,18 +114,18 @@ const UserPage: React.FC = () => {
       key: "action",
       render: (_: any, record: User) => (
         <div style={{ display: "flex", gap: "1rem" }}>
-          <Button type="primary" onClick={() => handleViewUser(record)}>
-            View
+          <Button type="link" onClick={() => handleViewUser(record)}>
+            <Eye />
           </Button>
           <Button type="primary" onClick={() => handleUpdateUser(record)}>
-            Update
+            <Recycle />
           </Button>
           <Button
             type="primary"
             danger
             onClick={() => showDeleteConfirm(record)}
           >
-            Delete
+            <Trash2 />
           </Button>
         </div>
       ),
@@ -140,6 +140,7 @@ const UserPage: React.FC = () => {
           type="primary"
           onClick={() => setIsCreateOrUpdateModalVisible(true)}
         >
+          <Plus />
           Add User
         </Button>
       </div>
