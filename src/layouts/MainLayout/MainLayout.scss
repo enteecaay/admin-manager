@@ -27,3 +27,43 @@ header {
     }
   }
 }
+
+@media (max-width: 768px) {
+  header {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    aside {
+      flex-direction: column;
+
+      .sidebar {
+        width: 100%;
+        padding: 10px;
+      }
+
+      main {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    .header {
+      padding: 10px;
+    }
+
+    aside {
+      .sidebar {
+        padding: 5px;
+      }
+
+      main {
+        padding: 5px;
+      }
+    }
+  }
+}
