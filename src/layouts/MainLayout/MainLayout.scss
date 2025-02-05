@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .header {
+    background-color: blue;
+    padding: 20px;
+  }
+
+  aside {
+    display: flex;
+    flex: 1;
+
+    .sidebar {
+      background-color: red;
+      width: 250px;
+      min-height: 100%;
+      padding: 20px;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+  }
+}
