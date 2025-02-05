@@ -1,0 +1,30 @@
+.header {
+  justify-content: flex-end;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+    margin-right: 1rem;
+
+    .text {
+      font-size: 0.875rem;
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .icon {
+      height: 2.25rem;
+      width: 2.25rem;
+      border-radius: 9999px;
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

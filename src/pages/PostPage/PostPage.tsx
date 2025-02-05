@@ -5,6 +5,8 @@ import { Button, Modal, Table } from "antd";
 import ModalViewPost from "../../components/ModalViewPost";
 import { Post } from "../../models/Post";
 import { deletePost, getPostsByUserId } from "../../service/postApi";
+import { Plus, Eye, Trash2, Recycle } from "lucide-react";
+import "./PostPage.scss";
 
 const PostPage: React.FC = () => {
   const [postList, setPostList] = useState<Post[]>([]);
@@ -14,7 +16,7 @@ const PostPage: React.FC = () => {
   const [isViewModalVisible, setIsViewModalVisible] = useState(false);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [isUpdateMode, setIsUpdateMode] = useState(false);
-  const [refreshTrigger, setRefreshTrigger] = useState(false); // New state variable
+  const [refreshTrigger, setRefreshTrigger] = useState(false);
 
   let userId: string = localStorage.getItem("userId") || "1";
   useEffect(() => {
@@ -28,7 +30,7 @@ const PostPage: React.FC = () => {
     };
 
     fetchPosts();
-  }, [userId, refreshTrigger]); // Add refreshTrigger to dependencies
+  }, [userId, refreshTrigger]);
 
   const handleViewPost = (post: Post) => {
     setSelectedPost(post);
@@ -141,18 +143,18 @@ const PostPage: React.FC = () => {
       key: "action",
       render: (text: string, record: Post) => (
         <div style={{ display: "flex", gap: "1rem" }}>
-          <Button type="primary" onClick={() => handleViewPost(record)}>
-            View
+          <Button type="link" onClick={() => handleViewPost(record)}>
+            <Eye />
           </Button>
           <Button type="primary" onClick={() => handleUpdatePost(record)}>
-            Update
+            <Recycle />
           </Button>
           <Button
             type="primary"
             danger
             onClick={() => showDeleteConfirm(record)}
           >
-            Delete
+            <Trash2 />
           </Button>
         </div>
       ),
@@ -161,12 +163,16 @@ const PostPage: React.FC = () => {
 
   return (
     <div className="post-list">
-      <Button
-        type="primary"
-        onClick={() => setIsCreateOrUpdateModalVisible(true)}
-      >
-        Add Post
-      </Button>
+      <div className="post-header">
+        <h2>Post Management</h2>
+        <Button
+          type="primary"
+          onClick={() => setIsCreateOrUpdateModalVisible(true)}
+        >
+          <Plus />
+          Add Post
+        </Button>
+      </div>
       <Table<Post>
         columns={columns}
         dataSource={postList.map((post) => ({ ...post, key: post.id }))}
@@ -185,7 +191,7 @@ const PostPage: React.FC = () => {
         style={modalStyle}
         styles={{
           body: { height: "70vh", width: "60vw", overflow: "auto" },
-        }} // Adjust height to fit the viewport
+        }}
       >
         <CreatePost
           post={selectedPost}

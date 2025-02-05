@@ -1,9 +1,7 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Sidebar.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
-
+import { Users, FileText } from "lucide-react";
 const Sidebar: React.FC = () => {
   return (
     <div className="sidebar">
@@ -18,12 +16,23 @@ const Sidebar: React.FC = () => {
         >
           MAIN
         </span>
-        <NavLink to="/posts">
-          <FontAwesomeIcon icon={faNewspaper} />
-          <span>Post</span>
+        <NavLink
+          to="/posts"
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
+          <div className="nav-item">
+            <FileText size={20} className="icon" />
+            <span>Post</span>
+          </div>
         </NavLink>
-        <NavLink to="/users">
-          <span>User</span>
+        <NavLink
+          to="/users"
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
+          <div className="nav-item">
+            <Users size={20} className="icon" />
+            <span>User</span>
+          </div>
         </NavLink>
       </div>
     </div>
