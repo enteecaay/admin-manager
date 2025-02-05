@@ -12,6 +12,11 @@ export const addUser = async (userData: any) => {
   return axiosInstance.post("/User", userData);
 };
 
+// Update User
+export const updateUser = async (userId: string, userData: User) => {
+  return axiosInstance.put(`/User/${userId}`, userData);
+};
+
 // Xóa User
 export const deleteUser = async (userId: string) => {
   return axiosInstance.delete(`/User/${userId}`);
