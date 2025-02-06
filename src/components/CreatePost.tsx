@@ -51,8 +51,9 @@ const CreatePost: React.FC<CreatePostProps> = ({
 
   const onFinish = async (values: Post) => {
     try {
-      const postData = { ...values, description: content };
+      const postData = { ...values, description: content, status: status };
       if (isUpdateMode && post) {
+        console.log(postData);
         await updatePost(post.id, postData);
       } else {
         let postData = {
@@ -61,6 +62,7 @@ const CreatePost: React.FC<CreatePostProps> = ({
           userId: localStorage.getItem("userId") || "1",
           id: Date.now().toString(),
           updateDate: new Date(Date.now()),
+          status: status,
         };
 
         console.log(postData);
@@ -110,8 +112,8 @@ const CreatePost: React.FC<CreatePostProps> = ({
           value={status ? "Active" : "Inactive"}
           onChange={handleStatusChange}
         >
-          <Select.Option value="true">Active</Select.Option>
-          <Select.Option value="false">Inactive</Select.Option>
+          <Select.Option value="Active">Active</Select.Option>
+          <Select.Option value="Inactive">Inactive</Select.Option>
         </Select>
       </Form.Item>
       <Form.Item label="Description">
