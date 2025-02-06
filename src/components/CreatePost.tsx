@@ -39,7 +39,7 @@ const CreatePost: React.FC<CreatePostProps> = ({
     } else {
       form.resetFields();
       form.setFieldsValue({
-        createDate: new Date().toISOString().split("T")[0],
+        createDate: new Date(Date.now()).toISOString().split("T")[0],
       });
       setContent("");
     }
